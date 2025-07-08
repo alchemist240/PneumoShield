@@ -3,8 +3,8 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const config = require('../config/config');
 const Doctor = require('../models/doctor');
+//const authenticate = require('../middleware/auth');
 
-// Middleware to verify JWT token
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
@@ -22,7 +22,7 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-// Utility to extract last name
+//Utility to extract last name
 const extractLastName = (fullName) => {
   const nameParts = fullName.trim().split(' ');
   return nameParts[nameParts.length - 1].toLowerCase(); // Get the last part of the name
