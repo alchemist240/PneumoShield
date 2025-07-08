@@ -1,32 +1,43 @@
-# PneumoShield
+# 🛡️ PneumoShield
 
-PneumoTrack is an AI-powered platform for X-ray analysis aimed at detecting pneumonia. It connects patients to nearby doctors, delivers AI-assisted diagnostic results, and facilitates feedback and recommendations. The system leverages the VGG19 deep learning model for pneumonia detection and provides a seamless communication channel between patients and healthcare professionals.
+**PneumoShield** is an AI-powered platform designed for intelligent chest X-ray analysis to detect **pneumonia**. It bridges the gap between **patients and healthcare professionals** by combining deep learning with geolocation-based doctor connectivity.
 
-## Features
+Built with ❤️ for **real-time diagnostics, medical feedback**, and **health guidance**, PneumoShield leverages the **VGG19** model for accurate pneumonia detection and facilitates a seamless feedback loop between AI and human expertise.
 
-- **X-ray Image Analysis**: Uses VGG19 convolutional neural network for accurate pneumonia detection from chest X-rays.
-- **Doctor Connectivity**: Automatically connects users with doctors in their vicinity, filtered by age (for relevant cases).
-- **AI and Human Review**: Sends AI-generated analysis to doctors, who can review, provide medical feedback, and offer further recommendations.
-- **Health Tips**: For normal results, the system provides personalized tips for maintaining healthy lungs.
-- **Feedback Loop**: Doctors can send tailored feedback to patients based on the AI results and their own expertise.
+---
 
-## Workflow
+## ✨ Features
 
-1. **Upload**: Patient uploads a chest X-ray image.
-2. **AI Analysis**: The VGG19 model processes the X-ray and classifies the result as 'normal' or 'pneumonia'.
-3. **Doctor Routing**:
-   - If the result is 'normal', user receives health maintenance tips.
-   - If pneumonia is detected, connect with doctors in the user's area (filtered by age, if applicable).
-4. **Doctor Feedback**: Doctor receives both the image and AI analysis, reviews the case, and sends feedback to the patient.
+- 🧠 **X-ray Image Analysis**: Uses VGG19 Convolutional Neural Network for accurate pneumonia detection.
+- 🩺 **Nearby Doctor Matching**: Connects users with doctors based on location and age relevance.
+- 🤖👨‍⚕️ **AI + Human Collaboration**: Sends AI diagnosis to doctors for expert review and feedback.
+- 🌱 **Health Tips**: Provides lung wellness tips if the result is normal.
+- 🔄 **Feedback Loop**: Doctors send insights, treatment suggestions, or referrals based on results.
 
-## Technologies Used
+---
 
-- **TypeScript** — Main programming language
-- **VGG19 Model** — Deep learning architecture for pneumonia detection
-- **Node.js/Express**  — For backend connectivity and API services
-- **Frontend Framework** (e.g., React/Next.js; specify if different)
-- **Geolocation APIs** — To match doctors by vicinity and age
-- **Communication APIs** — For doctor-patient messaging (please specify if using Twilio, email, etc.)
+## 🔁 Workflow
+
+1. 📤 **Upload**: User uploads a chest X-ray.
+2. 🧪 **AI Analysis**: The image is analyzed using the VGG19 model to classify it as `Normal` or `Pneumonia`.
+3. 📍 **Doctor Routing**:
+   - If `Normal`, the user gets health tips.
+   - If `Pneumonia`, nearby doctors (filtered by age if needed) are notified.
+4. 🗣️ **Doctor Feedback**: Doctor reviews the X-ray + AI result and provides recommendations.
+
+---
+
+## 🛠️ Technologies Used
+
+- ⚙️ **TypeScript** — For frontend and backend development
+- 🧠 **VGG19** — Deep learning model for X-ray classification
+- 🌐 **Node.js & Express** — RESTful API backend
+- ⚛️ **React + Vite** — Frontend interface
+- 📍 **Geolocation APIs** — Match users with nearby doctors
+- 📡 **Axios & REST** — Communication between frontend, backend, and ML model
+- ☁️ **MongoDB Atlas** — Cloud database for storing user and doctor records
+
+---
 
 ## Getting Started
 
@@ -40,9 +51,20 @@ PneumoTrack is an AI-powered platform for X-ray analysis aimed at detecting pneu
    npm install
    ```
 3. **Configure environment variables:**
-   - Set up API keys and model weights as required.
-   - Configure doctor database and geolocation services.
-
+   - 
+   - ✅ .env is already included in .gitignore and will not be pushed to Git.
+   - Create a .env file in the root directory of the project. Below is an example of what it should contain:
+   ```bash
+   JWT_SECRET=your_jwt_secret_here
+   JWT_EXPIRATION_TIME=1h
+   JWT_REFRESH_EXPIRATION=7d
+   DB_PASSWORD=your_database_password_here
+   ```
+   - 🛠️ You also need to configure the MongoDB connection string inside backend/database/db.js like this:
+   ```bash
+   const MONGO_URI = `mongodb+srv://kshitij1:${process.env.DB_PASSWORD}@cluster0.ofxueji.mongodb.net/?retryWrites=true&w=majority`;
+   ```
+   
 4. **Run locally:**
    ```bash
    npm run dev
@@ -60,9 +82,9 @@ PneumoTrack is an AI-powered platform for X-ray analysis aimed at detecting pneu
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create your feature branch 
+3. Commit your changes 
+4. Push to the branch 
 5. Open a pull request
 
 
